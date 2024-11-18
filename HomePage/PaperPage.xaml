@@ -1,0 +1,30 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             x:Class="HomePage.PaperPage"
+             Title="PaperPage">
+    <Grid RowDefinitions="*,Auto">
+        <!-- Background Image covering the entire page -->
+        <Image Source="paper_bg.png" Aspect="AspectFill" Grid.RowSpan="2" />
+
+        <!-- Clickable Label -->
+        <Label Text="ขายเพิ่มเติม"
+               FontSize="20"
+               TextColor="White"
+               HorizontalOptions="Center"
+               VerticalOptions="Center">
+            <!-- TapGestureRecognizer to handle tap event -->
+            <Label.GestureRecognizers>
+                <TapGestureRecognizer Tapped="OnLabelTapped" />
+            </Label.GestureRecognizers>
+        </Label>
+
+        <!-- Save Button at the bottom -->
+        <Button Text="Save"
+                Grid.Row="1"
+                HorizontalOptions="Center"
+                VerticalOptions="End"
+                Margin="0,10,0,10"
+                Clicked="OnSaveClicked" />
+    </Grid>
+</ContentPage>

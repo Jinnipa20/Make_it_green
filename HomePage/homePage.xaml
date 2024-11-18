@@ -1,0 +1,23 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             x:Class="HomePage.homePage"
+             Title="homePage">
+    <Grid>
+        <!-- Background Image -->
+        <Image Source="home_bg.png" Aspect="AspectFill" Grid.RowSpan="2" Grid.ColumnSpan="3" />
+
+        <!-- Button Layout using Grid with spacing -->
+        <Grid RowDefinitions="*,*"
+              ColumnDefinitions="*,*,*"
+              RowSpacing="10"
+              ColumnSpacing="10">
+            <ImageButton Source="plastics_button.png" Grid.Row="0" Grid.Column="0" />
+            <ImageButton Source="metals_button.png" Grid.Row="0" Grid.Column="1" />
+            <ImageButton Source="glass_button.png" Grid.Row="0" Grid.Column="2" />
+            <ImageButton Source="paper_button.png" Grid.Row="1" Grid.Column="0" Clicked="Goto_PaperPage" />
+            <ImageButton Source="electronics_button.png" Grid.Row="1" Grid.Column="1" />
+            <ImageButton Source="textiles_button.png" Grid.Row="1" Grid.Column="2" />
+        </Grid>
+    </Grid>
+</ContentPage>
