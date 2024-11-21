@@ -51,7 +51,7 @@ public class FirestoreService
         }
         return null;
     }
-    public async Task InsertStudent(GarbageOrderModel order)
+    public async Task InsertOrder(GarbageOrderModel order)
     {
         try
         {
@@ -71,20 +71,46 @@ public class FirestoreService
             StatusMessage = $"Error: {ex.Message}";
         }
     }
-     public async Task UpdateStudent(GarbageOrderModel order)
+     public async Task UpdateOrder(GarbageOrderModel order)
     {
         try
         {
             await SetupFireStore();
 
             // Manually create a dictionary for the updated data
-            var studentData = new Dictionary<string, object>
+            var orderData = new Dictionary<string, object>
             {
                 { "Type", order.Type },
                 { "Weight", order.Weight },
                 { "Price", order.Price }
                 // Add more fields as needed
             };
+            // Reference the document by its Id and update it
+            var docRef = db.Collection("GarbageOrder").Document(order.Type);
+            await docRef.SetAsync(orderData, SetOptions.Overwrite);
+
+            StatusMessage = "Order successfully updated!";
+        }
+        catch (Exception ex)
+        {
+            StatusMessage = $"Error: {ex.Message}";
+        }
+    }
+    public async Task DeleteOrder(string Type)
+    {
+        try
+        {
+            await SetupFireStore();
+
+            // Reference the document by its Id and delete it
+            var docRef = db.Collection("GarbageOrder").Document(Type);
+            await docRef.DeleteAsync();
+
+            StatusMessage = "Order successfully deleted!";
+        }
+        catch (Exception ex)
+        {
+            StatusMessage = $"Error: {ex.Message}";
         }
     }
 }
