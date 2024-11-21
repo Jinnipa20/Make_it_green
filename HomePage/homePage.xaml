@@ -5,19 +5,29 @@
              Title="homePage">
     <Grid>
         <!-- Background Image -->
-        <Image Source="home_bg.png" Aspect="AspectFill" Grid.RowSpan="2" Grid.ColumnSpan="3" />
+        <Image Source="home_bg.png" Aspect="AspectFill" />
 
-        <!-- Button Layout using Grid with spacing -->
-        <Grid RowDefinitions="*,*"
-              ColumnDefinitions="*,*,*"
-              RowSpacing="10"
-              ColumnSpacing="10">
-            <ImageButton Source="plastics_button.png" Grid.Row="0" Grid.Column="0" />
-            <ImageButton Source="metals_button.png" Grid.Row="0" Grid.Column="1" />
-            <ImageButton Source="glass_button.png" Grid.Row="0" Grid.Column="2" />
-            <ImageButton Source="paper_button.png" Grid.Row="1" Grid.Column="0" Clicked="Goto_PaperPage" />
-            <ImageButton Source="electronics_button.png" Grid.Row="1" Grid.Column="1" />
-            <ImageButton Source="textiles_button.png" Grid.Row="1" Grid.Column="2" />
-        </Grid>
+        <!-- Button Layout -->
+        <AbsoluteLayout>
+            <ImageButton Source="plastics_button.png"
+                         AbsoluteLayout.LayoutBounds="0.05, 0.46, 128, 128"
+                         AbsoluteLayout.LayoutFlags="PositionProportional" />
+            <ImageButton Source="metals_button.png"
+                         AbsoluteLayout.LayoutBounds="0.5, 0.46, 128, 128"
+                         AbsoluteLayout.LayoutFlags="PositionProportional" />
+            <ImageButton Source="glass_button.png"
+                         AbsoluteLayout.LayoutBounds="0.95, 0.46, 128, 128"
+                         AbsoluteLayout.LayoutFlags="PositionProportional" />
+            <ImageButton Source="electronics_button.png"
+                         AbsoluteLayout.LayoutBounds="0.95, 0.65, 128, 128"
+                         AbsoluteLayout.LayoutFlags="PositionProportional" />
+            <ImageButton Source="textiles_button.png"
+                         AbsoluteLayout.LayoutBounds="0.5, 0.65, 128, 128"
+                         AbsoluteLayout.LayoutFlags="PositionProportional" />
+            <ImageButton Source="paper_button.png"
+                         Clicked="Goto_PaperPage"
+                         AbsoluteLayout.LayoutBounds="0.05, 0.65, 128, 128"
+                         AbsoluteLayout.LayoutFlags="PositionProportional" />
+        </AbsoluteLayout>
     </Grid>
 </ContentPage>

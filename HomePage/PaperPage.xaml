@@ -3,28 +3,75 @@
              xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
              x:Class="HomePage.PaperPage"
              Title="PaperPage">
+
+
     <Grid RowDefinitions="*,Auto">
-        <!-- Background Image covering the entire page -->
+    <!-- Background Image covering the entire page -->
+        <Label
+            x:Name="PaperType"/>
         <Image Source="paper_bg.png" Aspect="AspectFill" Grid.RowSpan="2" />
 
-        <!-- Clickable Label -->
-        <Label Text="ขายเพิ่มเติม"
-               FontSize="20"
-               TextColor="White"
+
+        <AbsoluteLayout>
+    <!--ปุ่มลบ-->
+        <Label Text="-"
+               FontSize="40"
+               TextColor="Black"
                HorizontalOptions="Center"
-               VerticalOptions="Center">
+               VerticalOptions="End"
+               AbsoluteLayout.LayoutBounds="0.49, 0.465, 100, 128"
+               AbsoluteLayout.LayoutFlags="PositionProportional">
             <!-- TapGestureRecognizer to handle tap event -->
             <Label.GestureRecognizers>
-                <TapGestureRecognizer Tapped="OnLabelTapped" />
+                <TapGestureRecognizer Tapped="OnMinusTapped" />
             </Label.GestureRecognizers>
         </Label>
 
-        <!-- Save Button at the bottom -->
-        <Button Text="Save"
-                Grid.Row="1"
+            <!-- แสดงค่าปัจจุบัน -->
+            <Label 
+                Text="0" 
+                FontSize="18"
+                x:Name="StepperWeightLabel" 
+                AbsoluteLayout.LayoutBounds="0.82, 0.623, 100, 128"
+                AbsoluteLayout.LayoutFlags="PositionProportional"/> 
+
+    <!-- ปุ่มบวก -->
+        <Label Text="+"
+               FontSize="30"
+               TextColor="Black"
+               HorizontalOptions="Center"
+               VerticalOptions="End"
+               AbsoluteLayout.LayoutBounds="0.87, 0.46, 100, 128"
+               AbsoluteLayout.LayoutFlags="PositionProportional">
+        <!-- TapGestureRecognizer to handle tap event -->
+        <Label.GestureRecognizers>
+            <TapGestureRecognizer Tapped="OnPlusTapped" />
+        </Label.GestureRecognizers>
+        </Label>
+       
+
+
+        <Label 
+            x:Name="ResultLabel"
+            TextColor="Black" 
+            FontSize="18"
+            AbsoluteLayout.LayoutBounds="0.2, 0.8, 170, 128"
+            AbsoluteLayout.LayoutFlags="PositionProportional"/>
+        
+        </AbsoluteLayout>
+            
+    
+
+        <!-- Save Button -->
+        <Button Text="SAVE"
+                FontSize="18"
+                BackgroundColor="#2b4d15"
+                WidthRequest="120"
+                CornerRadius="32"
+                Grid.Row="2"
                 HorizontalOptions="Center"
                 VerticalOptions="End"
-                Margin="0,10,0,10"
+                Margin="0,50,0,50"
                 Clicked="OnSaveClicked" />
     </Grid>
 </ContentPage>
